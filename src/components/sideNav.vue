@@ -7,10 +7,10 @@
       <nav class="main-nav" role="navigation">
         <ul class="unstyled list-hover-slide">
           <li><v-link href="/">Home</v-link></li>
-          <li><v-link href="/about">About</v-link></li>
           <li><v-link href="/install">Install</v-link></li>
           <li><v-link href="/create">Create Project</v-link></li>
           <li><v-link href="/routing">Routing</v-link></li>
+          <li><v-link href="/about">About</v-link></li>
         </ul>
       </nav>
       <!--

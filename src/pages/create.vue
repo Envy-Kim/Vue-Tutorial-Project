@@ -2,8 +2,8 @@
   <div>
     <default-layout>
       <div class="content">
-        <h1>Create Project</h1>
-        <span>Frontend Study 3주차 과제</span>
+        <h1>Create Vue Project</h1>
+        <span>Vue Study 3주차 과제</span>
       </div>
     </default-layout>
   </div>

@@ -3,7 +3,7 @@
     <side-layout>
       <div class="content">
         <h1>Routing</h1>
-        <span>Frontend Study 3주차 과제</span>
+        <span>Vue Study 3주차 과제</span>
       </div>
     </side-layout>
   </div>
