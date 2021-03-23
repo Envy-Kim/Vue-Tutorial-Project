@@ -1,5 +1,5 @@
-import About from "@/components/About.vue"
-import Welcome from "@/components/Welcome.vue"
+import About from "@/pages/about.vue"
+import Welcome from "@/pages/main.vue"
 
 const router = {
     '/': Welcome,
