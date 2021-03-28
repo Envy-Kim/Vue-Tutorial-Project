@@ -1,24 +1,24 @@
 <template>
-  <div class="side-nav" role="banner">
+  <div class="navigator" role="banner">
     <h1 class="logo">
-      <v-link href="/">Vue Study <span>Route</span></v-link>
+      <router-link to="/">Vue Study <span>Route</span></router-link>
     </h1>
     <div class="nav-wrap">
       <nav class="main-nav" role="navigation">
         <ul class="unstyled list-hover-slide">
-          <li><v-link href="/">Home</v-link></li>
-          <li><v-link href="/install">Install</v-link></li>
-          <li><v-link href="/create">Create Project</v-link></li>
-          <li><v-link href="/routing">Routing</v-link></li>
-          <li><v-link href="/about">About</v-link></li>
+          <li><router-link to="/">Home</router-link></li>
+          <li><router-link to="/install">Install</router-link></li>
+          <li><router-link to="/create">Create Project</router-link></li>
+          <li><router-link to="/routing">Routing</router-link></li>
+          <li><router-link to="/about">About</router-link></li>
         </ul>
       </nav>
       <!--
       <ul class="social-links list-inline unstyled list-hover-slide">
-        <li><v-link href="#">Twitter</v-link></li>
-        <li><v-link href="#">Google+</v-link></li>
-        <li><v-link href="#">GitHub</v-link></li>
-        <li><v-link href="#">CodePen</v-link></li>
+        <li><router-link to="#">Twitter</router-link></li>
+        <li><router-link to="#">Google+</router-link></li>
+        <li><router-link to="#">GitHub</router-link></li>
+        <li><router-link to="#">CodePen</router-link></li>
       </ul>
       -->
     </div>
@@ -26,11 +26,9 @@
 </template>
 
 <script>
-import VLink from "@/components/VLink"
 
 export default {
-  name: "SideNav",
-  components: {VLink},
+  name: "navigator",
 }
 </script>
 
@@ -57,7 +55,7 @@ export default {
   float: left;
 }
 
-.side-nav {
+.navigator {
   position: fixed;
   left: 0;
   top: 0;
@@ -164,7 +162,7 @@ export default {
   transition: .35s ease left;
 }
 
-.list-hover-slide a.active {
+.list-hover-slide a.router-link-exact-active {
   content: '';
   display: block;
   z-index: -1;

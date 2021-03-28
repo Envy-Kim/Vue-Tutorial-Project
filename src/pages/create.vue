@@ -1,20 +1,20 @@
 <template>
   <div>
-    <default-layout>
+    <sub-layout>
       <div class="content">
         <h1>Create Vue Project</h1>
         <span>Vue Study 3주차 과제</span>
       </div>
-    </default-layout>
+    </sub-layout>
   </div>
 </template>
 
 <script>
-import DefaultLayout from "@/layouts/defaultLayout"
+import SubLayout from "@/components/layouts/sub/index"
 
 export default {
   name: "Create",
-  components: {DefaultLayout},
+  components: {SubLayout},
 }
 </script>
 

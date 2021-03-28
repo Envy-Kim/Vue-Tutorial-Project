@@ -1,27 +1,25 @@
 <template>
   <div class="nav" role="banner">
     <ul :class="type">
-      <li><v-link href="/">Home</v-link></li>
-      <li><v-link href="/install">Install</v-link></li>
-      <li><v-link href="/create">Create Project</v-link></li>
-      <li><v-link href="/routing">Routing</v-link></li>
-      <li><v-link href="/about">About</v-link></li>
+      <li><router-link to="/">Home</router-link></li>
+      <li><router-link to="/install">Install</router-link></li>
+      <li><router-link to="/create">Create Project</router-link></li>
+      <li><router-link to="/routing">Routing</router-link></li>
+      <li><router-link to="/about">About</router-link></li>
     </ul>
   </div>
 </template>
 
 <script>
-import VLink from "@/components/VLink"
 
 export default {
-  name: "VNavigation",
+  name: "navigator",
   props: {
     type: {
       type: String,
       default: 'horizontal',
     }
   },
-  components: {VLink},
 }
 </script>
 
@@ -46,11 +44,11 @@ ul.horizontal li a {
   text-decoration: none;
 }
 
-ul.horizontal li a:hover:not(.active) {
+ul.horizontal li a:hover:not(.router-link-exact-active) {
   background-color: #000;
 }
 
-ul.horizontal li a.active {
+ul.horizontal li a.router-link-exact-active {
   background-color:#4CAF50;
 }
 
@@ -75,11 +73,11 @@ ul.horizontal2 li a {
   text-decoration: none;
 }
 
-ul.horizontal2 li a:hover:not(.active) {
+ul.horizontal2 li a:hover:not(.router-link-exact-active) {
   background-color: #ddd;
 }
 
-ul.horizontal2 a.active {
+ul.horizontal2 a.router-link-exact-active {
   color: white;
   background-color: #4CAF50;
 }
@@ -107,12 +105,12 @@ ul.vertical li a {
   text-decoration: none;
 }
 
-ul.vertical li a:hover:not(.active) {
+ul.vertical li a:hover:not(.router-link-exact-active) {
   background-color: #555;
   color:white;
 }
 
-ul.vertical a.active {
+ul.vertical a.router-link-exact-active {
   background-color: #4CAF50;
   color:white;
 }
@@ -130,11 +128,11 @@ ul.gray li a {
   text-decoration: none;
 }
 
-ul.gray li a:hover:not(.active) {
+ul.gray li a:hover:not(.router-link-exact-active) {
   background-color: #ddd;
 }
 
-ul.gray li a.active {
+ul.gray li a.router-link-exact-active {
   color: white;
   background-color: #008CBA;
 }

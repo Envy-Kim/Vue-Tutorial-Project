@@ -1,6 +1,6 @@
 <template>
   <div>
-    <default-layout>
+    <sub-layout>
       <div class="content">
         <h1>Install Vuejs</h1>
 
@@ -13,16 +13,16 @@
           <li>2번 내용 다시 입력하여 RemoteSigned으로 변경된 것을 확인 후 다시 설치 진행</li>
         </ol>
       </div>
-    </default-layout>
+    </sub-layout>
   </div>
 </template>
 
 <script>
-import DefaultLayout from "@/layouts/defaultLayout"
+import SubLayout from "@/components/layouts/sub/index"
 
 export default {
   name: "Install",
-  components: {DefaultLayout},
+  components: {SubLayout},
 }
 </script>
 

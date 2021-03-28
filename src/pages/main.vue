@@ -1,6 +1,6 @@
 <template>
   <div>
-    <side-layout>
+    <main-layout>
       <div class="content">
         <h1>Vue Study - 3rd</h1>
         <ul>
@@ -9,21 +9,21 @@
           <li>Routing</li>
         </ul>
       </div>
-    </side-layout>
+    </main-layout>
   </div>
 </template>
 
 <script>
-import SideLayout from "@/layouts/sideLayout"
+import MainLayout from "@/components/layouts/main/index"
 
 export default {
   name: "Main",
-  components: { SideLayout },
+  components: { MainLayout },
 }
 </script>
 
 <style scoped>
 .content {
-  margin: auto 50px;
+  margin: auto 50px auto 300px;
 }
 </style>

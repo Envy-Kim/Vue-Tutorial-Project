@@ -1,6 +1,6 @@
 <template>
   <div>
-    <side-layout>
+    <main-layout>
       <div class="content">
         <h1>About</h1>
 
@@ -10,21 +10,21 @@
           3주차 배운 내용을 정리해볼까 했는데 CSS가 너무 어렵다...
         </p>
       </div>
-    </side-layout>
+    </main-layout>
   </div>
 </template>
 
 <script>
-import SideLayout from "@/layouts/sideLayout"
+import MainLayout from "@/components/layouts/main/index"
 
 export default {
   name: "About",
-  components: { SideLayout },
+  components: { MainLayout },
 }
 </script>
 
 <style scoped>
 .content {
-  margin: auto 50px;
+  margin: auto 50px auto 300px;
 }
 </style>

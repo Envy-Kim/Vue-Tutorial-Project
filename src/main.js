@@ -1,21 +1,16 @@
 import Vue from 'vue'
-import router from './router'
-import NotFound from "@/pages/error404"
+import VueRouter from 'vue-router'
+import routes from './router'
+import App from './App'
 
-const app = new Vue({
-    data: {
-        currentRoute: window.location.pathname
-    },
-    computed: {
-        ViewComponent() {
-            return router[this.currentRoute] || NotFound
-        }
-    },
-    render(h) {
-        return h(this.ViewComponent)
-    }
-}).$mount('#app')
+Vue.use(VueRouter)
 
-window.addEventListener('popstate', () => {
-    app.currentRoute = window.location.pathname
+const router = new VueRouter({
+    mode: "history",
+    routes
 })
+
+new Vue({
+    router,
+    render: h => h(App)
+}).$mount('#app')
