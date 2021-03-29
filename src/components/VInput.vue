@@ -12,7 +12,7 @@
            :disabled="disabled"
            :required="required"
            :class="[(isErr === true) ? 'box-error' : '']"
-           @keyup="checkValue"/>
+           @keyup="change"/>
     <div v-show="isMessage" :class="[(isErr === true) ? 'text-error' : '']" >{{ message }}</div>
   </div>
 </template>
@@ -64,7 +64,7 @@ export default {
       type: String,
     },
     rules: {
-      type: Array,
+      type: [String, Array],
     },
   },
   computed: {
@@ -83,6 +83,12 @@ export default {
     }
   },
   methods: {
+    change($event) {
+      this.checkValue();
+
+      // input의 변경된 값을 부모 컴포넌트로 전달
+      this.$emit('change', $event.target.value);
+    },
     checkValue() {
       if (this.required) {
         if (!this.value) {
@@ -114,9 +120,6 @@ export default {
         this.isErr = isMsg;
         this.message = msg[0];
       }
-
-      // input의 변경된 값을 부모 컴포넌트로 전달
-      this.$emit('change', this.value);
     },
   }
 }
