@@ -24,6 +24,7 @@
 
         <h1>Custom TextArea Component</h1>
         <br/><br/>
+        <v-textarea :value="testMsg" ></v-textarea>
       </div>
     </sub-layout>
   </div>
@@ -32,10 +33,11 @@
 <script>
 import SubLayout from "@/components/layouts/sub/index"
 import VInput from "@/components/VInput"
+import VTextarea from "@/components/VTextarea"
 
 export default {
   name: "Create",
-  components: {SubLayout, VInput},
+  components: {SubLayout, VInput, VTextarea},
   data: () => ({
     user: {
       name: '',
@@ -66,7 +68,8 @@ export default {
       phone: [
         value => !!value || '필수값입니다.',
       ]
-    }
+    },
+    testMsg: 'test',
   }),
   methods: {
     setEmail(val) {
