@@ -18,8 +18,7 @@
               <v-radio id="gender1" name="gender" value="1" label="남" :checked="true" />
               <v-radio id="gender2" name="gender" value="2" label="여" />
           </v-radio-group>
-          <br/><br/>
-
+          <br/>
 
           <v-radio-group label="연령대" type="cols" v-model="user.age" >
             <v-radio id="age1" name="age" value="10" label="10대" :checked="true" />
@@ -51,10 +50,10 @@
 
 <script>
 import SubLayout from "@/components/layouts/sub/index"
-import VInput from "@/components/VInput"
-import VTextarea from "@/components/VTextarea"
-import VRadioGroup from "@/components/VRadioGroup";
-import VRadio from "@/components/VRadio";
+import VInput from "@/components/forms/VInput"
+import VTextarea from "@/components/forms/VTextarea"
+import VRadioGroup from "@/components/forms/VRadioGroup";
+import VRadio from "@/components/forms/VRadio";
 
 export default {
   name: "Create",
