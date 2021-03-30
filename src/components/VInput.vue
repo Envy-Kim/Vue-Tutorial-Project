@@ -6,7 +6,6 @@
            :id="id"
            :name="name"
            :value="value"
-           v-model="value"
            :placeholder="placeholder"
            :readonly="readonly"
            :disabled="disabled"

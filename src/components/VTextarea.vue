@@ -95,8 +95,6 @@ export default {
 
         this.rules.forEach(function (value) {
           let check = value($event.target.value);
-          console.log($event.target.value);
-          console.log(check);
           if (check !== true) {
             isErr = true;
             msg.push(check);
