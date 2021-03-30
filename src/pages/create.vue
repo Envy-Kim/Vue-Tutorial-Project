@@ -12,7 +12,24 @@
           <v-input id="name" name="name" label="이름" v-model="user.name" :rules=rules.name />
           <br/>
           <v-input id="phone" name="phone" label="휴대폰번호" v-model="user.phone" :rules=rules.phone />
+          <br/>
+
+          <v-radio-group label="성별" v-model="user.gender" >
+              <v-radio id="gender1" name="gender" value="1" label="남" :checked="true" />
+              <v-radio id="gender2" name="gender" value="2" label="여" />
+          </v-radio-group>
           <br/><br/>
+
+
+          <v-radio-group label="연령대" type="cols" v-model="user.age" >
+            <v-radio id="age1" name="age" value="10" label="10대" :checked="true" />
+            <v-radio id="age2" name="age" value="20" label="20대" />
+            <v-radio id="age3" name="age" value="30" label="30대" />
+            <v-radio id="age4" name="age" value="40" label="40대" />
+            <v-radio id="age5" name="age" value="50" label="50대" />
+          </v-radio-group>
+          <br/><br/>
+
           <v-textarea id="info" name="info" label="Info" value=""
                       :width="500" backgroundColor="#bdf7d7" v-model="user.info" :rules=rules.info ></v-textarea>
         </div>
@@ -23,7 +40,8 @@
           비밀번호 : {{user.password}}<br/>
           이름 : {{user.name}}<br/>
           휴대폰번호 : {{user.phone}}<br/>
-          성별 : {{user.gender}}<br/>
+          성별 : {{ (user.gender === '1') ? '남' : '여'}}<br/>
+          연령대 : {{ user.age }}대<br/>
           정보 : {{user.info}}<br/>
         </div>
       </div>
@@ -35,18 +53,21 @@
 import SubLayout from "@/components/layouts/sub/index"
 import VInput from "@/components/VInput"
 import VTextarea from "@/components/VTextarea"
+import VRadioGroup from "@/components/VRadioGroup";
+import VRadio from "@/components/VRadio";
 
 export default {
   name: "Create",
-  components: {SubLayout, VInput, VTextarea},
+  components: { SubLayout, VInput, VTextarea, VRadioGroup, VRadio },
   data: () => ({
     user: {
       name: '',
       email: '',
       password: '',
       phone: '',
-      gender: '',
+      gender: '1',
       info: '',
+      age: '10',
     },
     rules: {
       email: [
