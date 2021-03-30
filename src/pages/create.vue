@@ -27,10 +27,21 @@
             <v-radio id="age4" name="age" value="40" label="40대" />
             <v-radio id="age5" name="age" value="50" label="50대" />
           </v-radio-group>
-          <br/><br/>
+          <br/>
 
+          <div class="input-group">
+            <v-checkbox label="Html" name="tech" input-value="html" v-model="user.tech" :checked="true"/>
+            <v-checkbox label="CSS" name="tech" input-value="css" v-model="user.tech" />
+            <v-checkbox label="JavaScript" name="tech" input-value="javascript" v-model="user.tech" />
+            <v-checkbox label="TypeScript" name="tech" input-value="typescript" v-model="user.tech" />
+            <v-checkbox label="Vue" name="tech" input-value="javascript" v-model="user.tech" />
+          </div>
+
+          <br/><br/>
           <v-textarea id="info" name="info" label="Info" value=""
                       :width="500" backgroundColor="#bdf7d7" v-model="user.info" :rules=rules.info ></v-textarea>
+
+          <v-checkbox label="동의" name="agree" :input-value="true" v-model="user.agree" />
         </div>
 
         <div class="info">
@@ -41,7 +52,9 @@
           휴대폰번호 : {{user.phone}}<br/>
           성별 : {{ (user.gender === '1') ? '남' : '여'}}<br/>
           연령대 : {{ user.age }}대<br/>
+          Tech : {{ user.tech }}<br/>
           정보 : {{user.info}}<br/>
+          동의 : {{user.agree}}<br/>
         </div>
       </div>
     </sub-layout>
@@ -54,10 +67,11 @@ import VInput from "@/components/forms/VInput"
 import VTextarea from "@/components/forms/VTextarea"
 import VRadioGroup from "@/components/forms/VRadioGroup";
 import VRadio from "@/components/forms/VRadio";
+import VCheckbox from "@/components/forms/VCheckbox";
 
 export default {
   name: "Create",
-  components: { SubLayout, VInput, VTextarea, VRadioGroup, VRadio },
+  components: { SubLayout, VInput, VTextarea, VRadioGroup, VRadio, VCheckbox },
   data: () => ({
     user: {
       name: '',
@@ -67,6 +81,8 @@ export default {
       gender: '1',
       info: '',
       age: '10',
+      tech: ['html'],
+      agree: false,
     },
     rules: {
       email: [
@@ -105,5 +121,9 @@ export default {
 <style scoped>
 .content {
   margin: auto 50px;
+}
+.input-group {
+  display: flex;
+  align-items: center;
 }
 </style>

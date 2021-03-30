@@ -22,7 +22,6 @@ export default {
   },
   methods: {
     setVal($event) {
-      console.log($event.target.value);
       this.$emit('input', $event.target.value)
     },
   },
