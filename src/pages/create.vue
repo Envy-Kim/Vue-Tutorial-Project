@@ -34,11 +34,11 @@
           <br/>
 
           <div class="input-group">
-            <v-checkbox label="Html" name="tech" input-value="html" v-model="user.tech" :checked="true"/>
-            <v-checkbox label="CSS" name="tech" input-value="css" v-model="user.tech" />
-            <v-checkbox label="JavaScript" name="tech" input-value="javascript" v-model="user.tech" />
-            <v-checkbox label="TypeScript" name="tech" input-value="typescript" v-model="user.tech" />
-            <v-checkbox label="Vue" name="tech" input-value="javascript" v-model="user.tech" />
+            <v-checkbox label="Html" id='chk1' name="tech" input-value="html" v-model="user.tech" :checked="true"/>
+            <v-checkbox label="CSS" id='chk2' name="tech" input-value="css" v-model="user.tech" />
+            <v-checkbox label="JavaScript" id='chk3' name="tech" input-value="javascript" v-model="user.tech" />
+            <v-checkbox label="TypeScript" id='chk4' name="tech" input-value="typescript" v-model="user.tech" />
+            <v-checkbox label="Vue" id='chk5' name="tech" input-value="javascript" v-model="user.tech" />
           </div>
 
           <br/><br/>
@@ -46,7 +46,7 @@
                       :width="500" :backgroundColor="textareaColor" v-model="user.info" :rules=rules.info ></v-textarea>
           <v-input id="bgColor" name="bgColor" label="배경색" v-model="textareaColor" />
 
-          <v-checkbox label="동의" name="agree" input-value="true" v-model="user.agree" />
+          <v-checkbox label="동의" id='chk6' name="agree" input-value="true" v-model="user.agree" />
         </div>
 
         <div class="info">
