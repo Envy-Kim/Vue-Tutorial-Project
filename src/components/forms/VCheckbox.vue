@@ -22,7 +22,7 @@ export default {
       type: String,
     },
     value: { // v-model과 매칭되는 value
-      type: [String, Array],
+      type: [String, Array, Boolean],
     },
     inputValue: { // checkbox에 들어가는 value
       type: String,
