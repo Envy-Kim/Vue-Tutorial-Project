@@ -1,8 +1,10 @@
+<!--
+todo: v-model 과 component의 model 확인
+-->
 <template>
   <div>
     <input type="checkbox"
            :id="id"
-           :name="name"
            :value="inputValue"
            :checked="checked"
            @input="change"
@@ -15,12 +17,6 @@
 export default {
   name: "VCheckbox",
   props: {
-    id: {
-      type: String,
-    },
-    name: {
-      type: String,
-    },
     value: { // v-model과 매칭되는 value
       type: [String, Array, Boolean],
     },
@@ -33,6 +29,16 @@ export default {
     checked: {
       type: Boolean,
       default: false,
+    },
+  },
+  data() {
+    return {
+      uid: null,
+    }
+  },
+  computed: {
+    id: function () {
+      return 'check_' + this.uid;
     },
   },
   methods: {
@@ -57,7 +63,11 @@ export default {
         this.$emit('input', $event.target.checked);
       }
     }
-  }
+  },
+  mounted() {
+    // 고유한 uid
+    this.uid = this._uid;
+  },
 }
 </script>
 

@@ -4,7 +4,7 @@
   -->
   <div class="select-wrap" :style="{ width: width + 'px'}">
     <label :for="id">{{ label }}</label>
-    <select :id="id" :name="name" @input="change">
+    <select :id="id" @input="change">
       <option v-for="(item, index) in options"
               :key="index"
               :value="item[itemValue]"
@@ -30,12 +30,6 @@ export default {
       type: String,
       default: 'text',
     },
-    id: {
-      type: String,
-    },
-    name: {
-      type: String,
-    },
     label: {
       type: String,
     },
@@ -47,7 +41,15 @@ export default {
       default: 300
     },
   },
+  data() {
+    return {
+      uid: null,
+    }
+  },
   computed: {
+    id: function () {
+      return 'select_' + this.uid;
+    },
     options: function () {
       let newOpt = new Object();
       newOpt[this.itemText] = '선택하세요.';
@@ -60,9 +62,13 @@ export default {
   },
   methods: {
     change(e) {
-      this.$emit('input', e.target.value);
+      this.$emit('select', e.target.value);
     }
-  }
+  },
+  mounted() {
+    // 고유한 uid
+    this.uid = this._uid;
+  },
 }
 </script>
 

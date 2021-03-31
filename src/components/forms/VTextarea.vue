@@ -3,7 +3,6 @@
     <div class="textarea-wrap">
       <label :for="id" :class="[(isErr === true) ? 'text-error' : '']">{{ label }}</label>
       <textarea :id="id"
-                :name="name"
                 :rows="rows"
                 :value="value"
                 :placeholder="placeholder"
@@ -27,12 +26,6 @@
 export default {
   name: "VTextarea",
   props: {
-    id: {
-      type: String,
-    },
-    name: {
-      type: String,
-    },
     value: {
       type: String,
       default: '',
@@ -76,10 +69,18 @@ export default {
       type: [String, Array],
     },
   },
-  data: () => ({
-    message: '',
-    isErr: false,
-  }),
+  data() {
+    return {
+      uid: null,
+      message: '',
+      isErr: false,
+    }
+  },
+  computed: {
+    id: function () {
+      return 'textarea_' + this.uid;
+    },
+  },
   methods: {
     change($event) {
       // 변경된 값을 부모 컴포넌트로 전달
@@ -110,7 +111,11 @@ export default {
         this.message = msg[0];
       }
     }
-  }
+  },
+  mounted() {
+    // 고유한 uid
+    this.uid = this._uid;
+  },
 }
 </script>
 

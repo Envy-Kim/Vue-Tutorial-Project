@@ -13,9 +13,6 @@
 export default {
   name: "VRadio",
   props: {
-    id: {
-      type: String,
-    },
     name: {
       type: String,
     },
@@ -30,7 +27,21 @@ export default {
       default: false,
     },
   },
+  data() {
+    return {
+      uid: null,
+    }
+  },
+  computed: {
+    id: function () {
+      return 'radio_' + this.uid;
+    },
+  },
   methods: {
+  },
+  mounted() {
+    // 고유한 uid
+    this.uid = this._uid;
   },
 }
 </script>

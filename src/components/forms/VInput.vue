@@ -1,13 +1,11 @@
 <!--
 todo : type에 대한 유효성 검증 등 검토
-todo : id의 동적할당, name이 필요한가?
 -->
 <template>
   <div class="input-wrap">
     <label :for="id" :style="customStyle">{{ label }}</label>
     <input :type="type"
            :id="id"
-           :name="name"
            :value="value"
            :placeholder="placeholder"
            :readonly="readonly"
@@ -31,12 +29,6 @@ export default {
     type: {
       type: String,
       default: "text"
-    },
-    id: {
-      type: String,
-    },
-    name: {
-      type: String,
     },
     value: {
       type: String,
@@ -73,19 +65,23 @@ export default {
       type: [String, Array],
     },
   },
+  data() {
+    return {
+      uid: null,
+      isMessage: false,
+      message: [],
+      isErr: false,
+    }
+  },
   computed: {
+    id: function () {
+      return 'input_' + this.uid;
+    },
     customStyle: function () {
       let custom = '';
       if (this.color) custom += "color:" + this.color + ";";
       if (this.backgroundColor) custom += "background-color:" + this.backgroundColor + ";";
       return custom;
-    }
-  },
-  data: function () {
-    return {
-      isMessage: false,
-      message: [],
-      isErr: false,
     }
   },
   methods: {
@@ -127,7 +123,11 @@ export default {
         this.message = msg[0];
       }
     },
-  }
+  },
+  mounted() {
+    // 고유한 uid
+    this.uid = this._uid;
+  },
 }
 </script>
 

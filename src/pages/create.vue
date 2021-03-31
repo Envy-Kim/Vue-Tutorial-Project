@@ -5,13 +5,13 @@
         <div class="input">
           <h1>Custom Component</h1>
 
-          <v-input id="email" name="email" type='email' label="E-mail" v-model="user.email" :rules=rules.email />
+          <v-input type='email' label="E-mail" v-model="user.email" :rules=rules.email />
           <br/>
-          <v-input id="password" name="password" type='password' label="Password" v-model="user.password" :rules=rules.password />
+          <v-input type='password' label="Password" v-model="user.password" :rules=rules.password />
           <br/>
-          <v-input id="name" name="name" label="이름" readonly v-model="user.name" :rules=rules.name />
+          <v-input label="이름" readonly v-model="user.name" :rules=rules.name />
           <br/>
-          <v-input id="phone" name="phone" label="휴대폰번호" v-model="user.phone" :rules=rules.phone />
+          <v-input label="휴대폰번호" v-model="user.phone" :rules=rules.phone />
           <br/>
 
           <v-radio-group label="성별" v-model="user.gender" >
