@@ -15,38 +15,37 @@
           <br/>
 
           <v-radio-group label="성별" v-model="user.gender" >
-              <v-radio id="gender1" name="gender" value="1" label="남" :checked="true" />
-              <v-radio id="gender2" name="gender" value="2" label="여" />
+              <v-radio name="gender" value="1" label="남" :checked="true" />
+              <v-radio name="gender" value="2" label="여" />
           </v-radio-group>
           <br/>
 
           <v-radio-group label="연령대" type="cols" v-model="user.age" >
-            <v-radio id="age1" name="age" value="10" label="10대" :checked="true" />
-            <v-radio id="age2" name="age" value="20" label="20대" />
-            <v-radio id="age3" name="age" value="30" label="30대" />
-            <v-radio id="age4" name="age" value="40" label="40대" />
-            <v-radio id="age5" name="age" value="50" label="50대" />
+            <v-radio name="age" value="10" label="10대" :checked="true" />
+            <v-radio name="age" value="20" label="20대" />
+            <v-radio name="age" value="30" label="30대" />
+            <v-radio name="age" value="40" label="40대" />
+            <v-radio name="age" value="50" label="50대" />
           </v-radio-group>
           <br/>
 
           <v-select :items="areaItems" item-value="value" item-text="title"
-                    id="area" name="area" label="지역" v-model="user.area"></v-select>
+                    label="지역" v-model="user.area"></v-select>
           <br/>
 
           <div class="input-group">
-            <v-checkbox label="Html" id='chk1' name="tech" input-value="html" v-model="user.tech" :checked="true"/>
-            <v-checkbox label="CSS" id='chk2' name="tech" input-value="css" v-model="user.tech" />
-            <v-checkbox label="JavaScript" id='chk3' name="tech" input-value="javascript" v-model="user.tech" />
-            <v-checkbox label="TypeScript" id='chk4' name="tech" input-value="typescript" v-model="user.tech" />
-            <v-checkbox label="Vue" id='chk5' name="tech" input-value="javascript" v-model="user.tech" />
+            <v-checkbox label="Html" input-value="html" v-model="user.tech" :checked="true"/>
+            <v-checkbox label="CSS" input-value="css" v-model="user.tech" />
+            <v-checkbox label="JavaScript" input-value="javascript" v-model="user.tech" />
+            <v-checkbox label="TypeScript" input-value="typescript" v-model="user.tech" />
+            <v-checkbox label="Vue" input-value="javascript" v-model="user.tech" />
           </div>
 
           <br/><br/>
-          <v-textarea id="info" name="info" label="Info" value=""
-                      :width="500" :backgroundColor="textareaColor" v-model="user.info" :rules=rules.info ></v-textarea>
-          <v-input id="bgColor" name="bgColor" label="배경색" v-model="textareaColor" />
+          <v-textarea label="Info" :width="500" :backgroundColor="textareaColor" v-model="user.info" :rules=rules.info ></v-textarea>
+          <v-input label="배경색" v-model="textareaColor" />
 
-          <v-checkbox label="동의" id='chk6' name="agree" input-value="true" v-model="user.agree" />
+          <v-checkbox label="동의" input-value="true" v-model="user.agree" />
         </div>
 
         <div class="info">
