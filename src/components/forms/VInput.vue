@@ -1,4 +1,7 @@
-<!-- Input : text, password, email -->
+<!--
+todo : type에 대한 유효성 검증 등 검토
+todo : id의 동적할당, name이 필요한가?
+-->
 <template>
   <div class="input-wrap">
     <label :for="id" :style="customStyle">{{ label }}</label>
@@ -44,15 +47,12 @@ export default {
     },
     readonly: {
       type: Boolean,
-      default: false,
     },
     disabled: {
       type: Boolean,
-      default: false,
     },
     required: {
       type: Boolean,
-      default: false,
     },
     label: {
       type: String,
@@ -87,12 +87,12 @@ export default {
   },
   methods: {
     change($event) {
-      this.checkValue();
+      this.checkValue($event);
 
       // input의 변경된 값을 부모 컴포넌트로 전달
       this.$emit('input', $event.target.value);
     },
-    checkValue() {
+    checkValue($event) {
       if (this.required) {
         if (!this.value) {
           this.isMessage = true;
@@ -107,7 +107,7 @@ export default {
 
       // 입력받은 rules에 맞춰서 유효성 검사
       if (this.rules) {
-        let checkVal = this.value;
+        let checkVal = $event.target.value;
         let isMsg = false;
         let msg = [];
 

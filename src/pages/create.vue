@@ -9,7 +9,7 @@
           <br/>
           <v-input id="password" name="password" type='password' label="Password" v-model="user.password" :rules=rules.password />
           <br/>
-          <v-input id="name" name="name" label="이름" v-model="user.name" :rules=rules.name />
+          <v-input id="name" name="name" label="이름" readonly v-model="user.name" :rules=rules.name />
           <br/>
           <v-input id="phone" name="phone" label="휴대폰번호" v-model="user.phone" :rules=rules.phone />
           <br/>
@@ -81,7 +81,7 @@ export default {
   components: { SubLayout, VInput, VTextarea, VRadioGroup, VRadio, VCheckbox, VSelect },
   data: () => ({
     user: {
-      name: '',
+      name: '김경식',
       email: '',
       password: '',
       phone: '',
