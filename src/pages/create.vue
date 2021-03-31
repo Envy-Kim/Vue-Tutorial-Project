@@ -43,7 +43,8 @@
 
           <br/><br/>
           <v-textarea id="info" name="info" label="Info" value=""
-                      :width="500" backgroundColor="#bdf7d7" v-model="user.info" :rules=rules.info ></v-textarea>
+                      :width="500" :backgroundColor="textareaColor" v-model="user.info" :rules=rules.info ></v-textarea>
+          <v-input id="bgColor" name="bgColor" label="배경색" v-model="textareaColor" />
 
           <v-checkbox label="동의" name="agree" input-value="true" v-model="user.agree" />
         </div>
@@ -144,7 +145,8 @@ export default {
         value: '제주도',
         title: '제주도'
       }
-    ]
+    ],
+    textareaColor: '#bdf7d7',
   }),
   methods: {
   }
