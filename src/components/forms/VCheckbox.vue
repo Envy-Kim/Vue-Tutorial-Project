@@ -1,5 +1,6 @@
 <!--
 todo: v-model 과 component의 model 확인
+todo: 다중 선택일때는 array, 아닐때는 boolean을 리턴하는 것에 대한 검토
 -->
 <template>
   <div>
