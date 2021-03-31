@@ -89,7 +89,7 @@ export default {
       age: '10',
       tech: ['html'],
       agree: false,
-      area: '',
+      area: '수도권',
     },
     rules: {
       email: [

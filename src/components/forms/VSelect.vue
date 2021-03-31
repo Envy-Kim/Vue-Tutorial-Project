@@ -1,10 +1,14 @@
 <template>
+  <!--
+  todo: vuetify의 select api를 참고하여 수정 ( ex) 다중 선택 등 )
+  -->
   <div class="select-wrap" :style="{ width: width + 'px'}">
     <label :for="id">{{ label }}</label>
     <select :id="id" :name="name" @input="change">
       <option v-for="(item, index) in options"
               :key="index"
-              :value="item[itemValue]">{{ item[itemText] }}
+              :value="item[itemValue]"
+              :selected="(item[itemValue] == value)">{{ item[itemText] }}
       </option>
     </select>
   </div>
@@ -34,6 +38,9 @@ export default {
     },
     label: {
       type: String,
+    },
+    value: {
+      type: String
     },
     width: {
       type: Number,
