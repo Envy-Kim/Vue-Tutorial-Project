@@ -47,12 +47,15 @@ export default {
     },
     readonly: {
       type: Boolean,
+      default: false,
     },
     disabled: {
       type: Boolean,
+      default: false,
     },
     required: {
       type: Boolean,
+      default: false,
     },
     label: {
       type: String,
