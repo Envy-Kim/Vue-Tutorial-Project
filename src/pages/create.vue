@@ -5,47 +5,47 @@
         <div class="input">
           <h1>Custom Component</h1>
 
-          <v-input type='email' id="email" name="email" label="E-mail" v-model="user.email" :rules=rules.email />
+          <base-input type='email' id="email" name="email" label="E-mail" v-model="user.email" :rules=rules.email />
           <br/>
-          <v-input type='password' label="Password" v-model="user.password" :rules=rules.password />
+          <base-input type='password' label="Password" v-model="user.password" :rules=rules.password />
           <br/>
-          <v-input label="이름" readonly v-model="user.name" :rules=rules.name />
+          <base-input label="이름" readonly v-model="user.name" :rules=rules.name />
           <br/>
-          <v-input label="휴대폰번호" v-model="user.phone" :rules=rules.phone />
-          <br/>
-
-          <v-radio-group label="성별" name="gender" v-model="user.gender" >
-              <v-radio value="1" label="남" :checked="true" />
-              <v-radio value="2" label="여" />
-          </v-radio-group>
+          <base-input label="휴대폰번호" v-model="user.phone" :rules=rules.phone />
           <br/>
 
-          <v-radio-group label="연령대" type="cols" v-model="user.age" >
-            <v-radio name="age" value="10" label="10대" :checked="true" />
-            <v-radio name="age" value="20" label="20대" />
-            <v-radio name="age" value="30" label="30대" />
-            <v-radio name="age" value="40" label="40대" />
-            <v-radio name="age" value="50" label="50대" />
-          </v-radio-group>
+          <base-radio-group label="성별" v-model="user.gender" >
+              <base-radio value="1" label="남" :checked="true" />
+              <base-radio value="2" label="여" />
+          </base-radio-group>
           <br/>
 
-          <v-select :items="areaItems" item-value="value" item-text="title"
-                    label="지역" v-model="user.area"></v-select>
+          <base-radio-group label="연령대" name="age" type="cols" v-model="user.age" >
+            <base-radio value="10" label="10대" :checked="true" />
+            <base-radio value="20" label="20대" />
+            <base-radio value="30" label="30대" />
+            <base-radio value="40" label="40대" />
+            <base-radio value="50" label="50대" />
+          </base-radio-group>
+          <br/>
+
+          <base-select :items="areaItems" item-value="value" item-text="title"
+                    label="지역" v-model="user.area"></base-select>
           <br/>
 
           <div class="input-group">
-            <v-checkbox label="Html" input-value="html" v-model="user.tech" :checked="true"/>
-            <v-checkbox label="CSS" input-value="css" v-model="user.tech" />
-            <v-checkbox label="JavaScript" input-value="javascript" v-model="user.tech" />
-            <v-checkbox label="TypeScript" input-value="typescript" v-model="user.tech" />
-            <v-checkbox label="Vue" input-value="javascript" v-model="user.tech" />
+            <base-checkbox label="Html" input-value="html" v-model="user.tech" :checked="true"/>
+            <base-checkbox label="CSS" input-value="css" v-model="user.tech" />
+            <base-checkbox label="JavaScript" input-value="javascript" v-model="user.tech" />
+            <base-checkbox label="TypeScript" input-value="typescript" v-model="user.tech" />
+            <base-checkbox label="Vue" input-value="javascript" v-model="user.tech" />
           </div>
 
           <br/><br/>
-          <v-textarea label="Info" :width="500" :backgroundColor="textareaColor" v-model="user.info" :rules=rules.info ></v-textarea>
-          <v-input label="배경색" v-model="textareaColor" />
+          <base-textarea label="Info" :width="500" :background-color="textareaColor" v-model="user.info" :rules=rules.info ></base-textarea>
+          <base-input label="배경색" v-model="textareaColor" />
 
-          <v-checkbox label="동의" input-value="true" v-model="user.agree" />
+          <base-checkbox label="동의" input-value="true" v-model="user.agree" />
         </div>
 
         <div class="info">
@@ -68,16 +68,16 @@
 
 <script>
 import SubLayout from "@/components/layouts/sub/index"
-import VInput from "@/components/forms/BaseTextInput"
-import VTextarea from "@/components/forms/BaseTextarea"
-import VRadioGroup from "@/components/forms/BaseRadioGroup";
-import VRadio from "@/components/forms/BaseRadio";
-import VCheckbox from "@/components/forms/BaseCheckbox";
-import VSelect from "@/components/forms/BaseSelect";
+import BaseInput from "@/components/forms/BaseInput"
+import BaseTextarea from "@/components/forms/BaseTextarea"
+import BaseRadioGroup from "@/components/forms/BaseRadioGroup";
+import BaseRadio from "@/components/forms/BaseRadio";
+import BaseCheckbox from "@/components/forms/BaseCheckbox";
+import BaseSelect from "@/components/forms/BaseSelect";
 
 export default {
   name: "Create",
-  components: { SubLayout, VInput, VTextarea, VRadioGroup, VRadio, VCheckbox, VSelect },
+  components: { SubLayout, BaseInput, BaseTextarea, BaseRadioGroup, BaseRadio, BaseCheckbox, BaseSelect },
   data: () => ({
     user: {
       name: '김경식',

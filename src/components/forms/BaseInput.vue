@@ -1,6 +1,4 @@
-<!--
-todo : type에 대한 유효성 검증 등 검토
--->
+
 <template>
   <div class="input-wrap">
     <label :for="_id" :style="customStyle">{{ label }}</label>
@@ -25,7 +23,7 @@ todo : type에 대한 유효성 검증 등 검토
 <script>
 
 export default {
-  name: "BaseTextInput",
+  name: "BaseInput",
   props: {
     type: {
       type: String,
