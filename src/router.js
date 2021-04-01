@@ -1,8 +1,8 @@
-import Main from "@/pages/main"
-import About from "@/pages/about"
-import Install from "@/pages/install"
-import Create from "@/pages/create"
-import Routing from "@/pages/routing"
+import Main from "@/pages/Main"
+import Install from "@/pages/InstallPage"
+import Route from "@/pages/RoutePage"
+import Custom from "@/pages/CustomPage"
+import Dynamic from "@/pages/DynamicPage"
 
 const router = [
     {
@@ -10,20 +10,20 @@ const router = [
         component: Main,
     },
     {
-        path: '/about',
-        component: About,
+        path: '/dynamic',
+        component: Dynamic,
     },
     {
         path: '/install',
         component: Install,
     },
     {
-        path: '/create',
-        component: Create,
+        path: '/Custom',
+        component: Custom,
     },
     {
-        path: '/routing',
-        component: Routing,
+        path: '/route',
+        component: Route,
     },
 ]
 

@@ -9,9 +9,9 @@
 
 
 <script>
-import MainHeader from "@/components/layouts/main/header"
-import MainNavigator from "@/components/layouts/main/navigator"
-import MainFooter from "@/components/layouts/main/footer"
+import MainHeader from "@/components/layouts/main/Header"
+import MainNavigator from "@/components/layouts/main/Navigator"
+import MainFooter from "@/components/layouts/main/Footer"
 
 export default {
   name: "MainLayout",

@@ -2,11 +2,12 @@
   <div>
     <main-layout>
       <div class="content">
-        <h1>Vue Study - 3rd</h1>
+        <h1>Vue Study</h1>
         <ul>
-          <li>Vuejs 설치</li>
-          <li>Vuejs 프로젝트 생성</li>
-          <li>Routing</li>
+          <li>Vuejs 설치 및 프로젝트 생성</li>
+          <li>Vue Route</li>
+          <li>Custom Input Component</li>
+          <li>Dynamic Component</li>
         </ul>
       </div>
     </main-layout>
@@ -14,7 +15,7 @@
 </template>
 
 <script>
-import MainLayout from "@/components/layouts/main/index"
+import MainLayout from "@/components/layouts/main/Index"
 
 export default {
   name: "Main",

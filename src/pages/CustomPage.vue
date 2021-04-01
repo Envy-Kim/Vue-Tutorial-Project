@@ -67,7 +67,7 @@
 </template>
 
 <script>
-import SubLayout from "@/components/layouts/sub/index"
+import SubLayout from "@/components/layouts/sub/Index"
 import BaseInput from "@/components/forms/BaseInput"
 import BaseTextarea from "@/components/forms/BaseTextarea"
 import BaseRadioGroup from "@/components/forms/BaseRadioGroup";
@@ -76,7 +76,7 @@ import BaseCheckbox from "@/components/forms/BaseCheckbox";
 import BaseSelect from "@/components/forms/BaseSelect";
 
 export default {
-  name: "Create",
+  name: "CustomPage",
   components: { SubLayout, BaseInput, BaseTextarea, BaseRadioGroup, BaseRadio, BaseCheckbox, BaseSelect },
   data: () => ({
     user: {

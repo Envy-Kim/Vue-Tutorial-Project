@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import SubLayout from "@/components/layouts/sub/index"
+import SubLayout from "@/components/layouts/sub/Index"
 
 export default {
   name: "Install",
