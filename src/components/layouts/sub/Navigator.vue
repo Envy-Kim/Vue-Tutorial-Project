@@ -1,16 +1,15 @@
 <template>
   <div class="nav" role="banner">
     <ul :class="type">
-      <li><router-link to="/">Home</router-link></li>
-      <li><router-link to="/install">Install</router-link></li>
-      <li><router-link to="/route">Vue Route</router-link></li>
-      <li><router-link to="/custom">Custom Input Components</router-link></li>
-      <li><router-link to="/dynamic">Dynamic Component</router-link></li>
+      <li v-for="(item, index) in router" :key="index">
+        <router-link :to="item.path">{{item.title}}</router-link>
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
+import routes from '@/router'
 
 export default {
   name: "navigator",
@@ -20,6 +19,11 @@ export default {
       default: 'horizontal',
     }
   },
+  computed: {
+    router: function() {
+      return routes
+    }
+  }
 }
 </script>
 

@@ -8,22 +8,27 @@ const router = [
     {
         path: '/',
         component: Main,
-    },
-    {
-        path: '/dynamic',
-        component: Dynamic,
+        title: 'Home'
     },
     {
         path: '/install',
         component: Install,
-    },
-    {
-        path: '/Custom',
-        component: Custom,
+        title: 'Install'
     },
     {
         path: '/route',
         component: Route,
+        title: 'Vue Route'
+    },
+    {
+        path: '/Custom',
+        component: Custom,
+        title: 'Custom Input Component'
+    },
+    {
+        path: '/dynamic',
+        component: Dynamic,
+        title: 'Dynamic Component'
     },
 ]
 
