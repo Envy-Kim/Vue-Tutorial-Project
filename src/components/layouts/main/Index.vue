@@ -22,5 +22,5 @@ export default {
 </script>
 
 <style scoped>
-  .ml-300 { margin-left: 300px }
+  .ml-300 { margin-left: 350px }
 </style>

@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import routes from './router'
 import App from './App'
+//import '@/assets/css/reset.css'
+import '@/assets/css/normalize.css'
 
 Vue.use(VueRouter)
 

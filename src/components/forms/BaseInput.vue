@@ -134,7 +134,7 @@ export default {
 
 <style scoped>
 .input-wrap label {
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .text-error {

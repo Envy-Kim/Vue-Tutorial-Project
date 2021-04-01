@@ -25,6 +25,6 @@ export default {
 
 <style scoped>
 .content {
-  margin: auto 50px auto 300px;
+  margin: auto 50px auto 350px;
 }
 </style>

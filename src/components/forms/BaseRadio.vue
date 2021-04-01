@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="radio-item">
     <input type="radio"
            :id="_id"
            :name="_name"
@@ -42,5 +42,5 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 </style>

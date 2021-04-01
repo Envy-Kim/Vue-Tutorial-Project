@@ -3,10 +3,8 @@
     <sub-layout>
       <div class="content">
         <h1>동적 컴포넌트</h1>
-        <p>
-          라우터 기능을 이용한 메뉴 구성<br/>
-          3주차 배운 내용을 정리해볼까 했는데 CSS가 너무 어렵다...
-        </p>
+        <div>
+        </div>
       </div>
     </sub-layout>
   </div>
