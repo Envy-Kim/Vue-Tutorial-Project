@@ -5,7 +5,7 @@ todo: 다중 선택일때는 array, 아닐때는 boolean을 리턴하는 것에 
 <template>
   <div>
     <input type="checkbox"
-           :id="id"
+           :id="_id"
            :value="inputValue"
            :checked="checked"
            @input="change"
@@ -16,8 +16,11 @@ todo: 다중 선택일때는 array, 아닐때는 boolean을 리턴하는 것에 
 
 <script>
 export default {
-  name: "VCheckbox",
+  name: "BaseCheckbox",
   props: {
+    id: {
+      type: String,
+    },
     value: { // v-model과 매칭되는 value
       type: [String, Array, Boolean],
     },
@@ -32,19 +35,13 @@ export default {
       default: false,
     },
   },
-  data() {
-    return {
-      uid: null,
-    }
-  },
   computed: {
-    id: function () {
-      return 'check_' + this.uid;
+    _id: function () {
+      return (this.id) ? this.id : 'input-' + this._uid
     },
   },
   methods: {
     change($event) {
-
       if(this.value instanceof Array) {
         // 다중선택 체크박스인 경우 값을 배열로 반환
 
@@ -58,16 +55,12 @@ export default {
           // 선택된 체크박스를 해제한 경우 checkArr에서 현재 체크박스의 값을 삭제
           checkArr.splice(checkArr.indexOf(this.inputValue), 1)
         }
-        this.$emit('input', checkArr);
+        this.$emit('input', checkArr)
       } else {
         // 다중선택이 아닌경우 true / false 반환
-        this.$emit('input', $event.target.checked);
+        this.$emit('input', $event.target.checked)
       }
     }
-  },
-  mounted() {
-    // 고유한 uid
-    this.uid = this._uid;
   },
 }
 </script>

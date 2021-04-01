@@ -3,9 +3,10 @@ todo : type에 대한 유효성 검증 등 검토
 -->
 <template>
   <div class="input-wrap">
-    <label :for="id" :style="customStyle">{{ label }}</label>
+    <label :for="_id" :style="customStyle">{{ label }}</label>
     <input :type="type"
-           :id="id"
+           :id="_id"
+           :name="name"
            :value="value"
            :placeholder="placeholder"
            :readonly="readonly"
@@ -24,11 +25,17 @@ todo : type에 대한 유효성 검증 등 검토
 <script>
 
 export default {
-  name: "VInput",
+  name: "BaseTextInput",
   props: {
     type: {
       type: String,
       default: "text"
+    },
+    id: {
+      type: String,
+    },
+    name: {
+      type: String,
     },
     value: {
       type: String,
@@ -67,15 +74,15 @@ export default {
   },
   data() {
     return {
-      uid: null,
       isMessage: false,
       message: [],
       isErr: false,
     }
   },
   computed: {
-    id: function () {
-      return 'input_' + this.uid;
+    _id: function () {
+      // 전달받은 id가 없으면 해당 컴포넌트의 uid로 id를 만듬.
+      return (this.id) ? this.id : 'input-' + this._uid
     },
     customStyle: function () {
       let custom = '';
@@ -123,10 +130,6 @@ export default {
         this.message = msg[0];
       }
     },
-  },
-  mounted() {
-    // 고유한 uid
-    this.uid = this._uid;
   },
 }
 </script>

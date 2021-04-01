@@ -5,7 +5,7 @@
         <div class="input">
           <h1>Custom Component</h1>
 
-          <v-input type='email' label="E-mail" v-model="user.email" :rules=rules.email />
+          <v-input type='email' id="email" name="email" label="E-mail" v-model="user.email" :rules=rules.email />
           <br/>
           <v-input type='password' label="Password" v-model="user.password" :rules=rules.password />
           <br/>
@@ -14,9 +14,9 @@
           <v-input label="휴대폰번호" v-model="user.phone" :rules=rules.phone />
           <br/>
 
-          <v-radio-group label="성별" v-model="user.gender" >
-              <v-radio name="gender" value="1" label="남" :checked="true" />
-              <v-radio name="gender" value="2" label="여" />
+          <v-radio-group label="성별" name="gender" v-model="user.gender" >
+              <v-radio value="1" label="남" :checked="true" />
+              <v-radio value="2" label="여" />
           </v-radio-group>
           <br/>
 
@@ -68,12 +68,12 @@
 
 <script>
 import SubLayout from "@/components/layouts/sub/index"
-import VInput from "@/components/forms/VInput"
-import VTextarea from "@/components/forms/VTextarea"
-import VRadioGroup from "@/components/forms/VRadioGroup";
-import VRadio from "@/components/forms/VRadio";
-import VCheckbox from "@/components/forms/VCheckbox";
-import VSelect from "@/components/forms/VSelect";
+import VInput from "@/components/forms/BaseTextInput"
+import VTextarea from "@/components/forms/BaseTextarea"
+import VRadioGroup from "@/components/forms/BaseRadioGroup";
+import VRadio from "@/components/forms/BaseRadio";
+import VCheckbox from "@/components/forms/BaseCheckbox";
+import VSelect from "@/components/forms/BaseSelect";
 
 export default {
   name: "Create",

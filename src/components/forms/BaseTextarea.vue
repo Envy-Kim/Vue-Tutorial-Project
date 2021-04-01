@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: "VTextarea",
+  name: "BaseTextarea",
   props: {
     value: {
       type: String,

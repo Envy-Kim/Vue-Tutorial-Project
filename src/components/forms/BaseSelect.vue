@@ -3,8 +3,8 @@
   todo: vuetify의 select api를 참고하여 수정 ( ex) 다중 선택 등 )
   -->
   <div class="select-wrap" :style="{ width: width + 'px'}">
-    <label :for="id">{{ label }}</label>
-    <select :id="id" @input="change">
+    <label :for="_id">{{ label }}</label>
+    <select :id="_id" @input="change">
       <option v-for="(item, index) in options"
               :key="index"
               :value="item[itemValue]"
@@ -16,8 +16,11 @@
 
 <script>
 export default {
-  name: "VSelect",
+  name: "BaseSelect",
   props: {
+    id: {
+      type: String,
+    },
     items: {
       type: Array,
       required: true,
@@ -47,27 +50,24 @@ export default {
     }
   },
   computed: {
-    id: function () {
-      return 'select_' + this.uid;
+    _id: function () {
+      return (this.id) ? this.id : 'input-' + this._uid
     },
     options: function () {
       let newOpt = new Object();
-      newOpt[this.itemText] = '선택하세요.';
-      newOpt[this.itemValue] = '';
+      newOpt[this.itemText] = '선택하세요.'
+      newOpt[this.itemValue] = ''
 
-      const optArr = [newOpt, ...this.items];
+      const optArr = [newOpt, ...this.items]
 
-      return optArr;
+      return optArr
     }
   },
   methods: {
     change(e) {
-      this.$emit('select', e.target.value);
+      console.log(e.target.value)
+      this.$emit('input', e.target.value)
     }
-  },
-  mounted() {
-    // 고유한 uid
-    this.uid = this._uid;
   },
 }
 </script>
