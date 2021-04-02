@@ -102,9 +102,9 @@ export default {
           }
         });
 
-        if($event.target.value.length > this.maxlength) {
+        if ($event.target.value.length > this.maxlength) {
           isErr = true;
-          msg.push(this.maxlength+'자까지 입력이 가능합니다.');
+          msg.push(this.maxlength + '자까지 입력이 가능합니다.');
         }
 
         this.isErr = isErr;
@@ -119,7 +119,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .input-wrap {
   align-items: flex-start;
   flex: 1 1 auto;
@@ -127,65 +127,66 @@ export default {
   letter-spacing: normal;
   max-width: 100%;
   text-align: left;
-}
-.input-wrap .textarea-wrap {
-  display: flex;
-  flex: 1 1 auto;
-  position: relative;
-}
 
-.textarea-wrap label {
-  top: -25px;
-  left: 0px;
-  right: auto;
-  position: absolute;
-  font-size: 18px;
-  height: 20px;
-  line-height: 20px;
-  letter-spacing: normal;
-}
+  .textarea-wrap {
+    display: flex;
+    flex: 1 1 auto;
+    position: relative;
 
-.textarea-wrap textarea {
-  align-self: stretch;
-  flex: 1 1 auto;
-  line-height: 1.75rem;
-  max-width: 100%;
-  min-height: 32px;
-  outline: none;
-  padding: 0;
-  width: 100%;
-  background-color: transparent;
-  border: none;
-  border-bottom: solid 2px #555555;
-}
+    textarea {
+      align-self: stretch;
+      flex: 1 1 auto;
+      line-height: 1.75rem;
+      max-width: 100%;
+      min-height: 32px;
+      outline: none;
+      padding: 0;
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      border-bottom: solid 2px #555555;
 
-.textarea-wrap textarea:focus {
-  outline:none;
-  border-bottom: solid 3px #277dff;
-}
+      &:focus {
+        outline: none;
+        border-bottom: solid 3px #277dff;
+      }
 
-.textarea-wrap textarea.text-error {
-  border-bottom: solid 3px #ff1010;
-}
+      &.text-error {
+        border-bottom: solid 3px #ff1010;
+      }
+    }
+  }
 
-.text-error {
-  color: #ff1010;
-}
+  label {
+    top: -25px;
+    left: 0px;
+    right: auto;
+    position: absolute;
+    font-size: 18px;
+    height: 20px;
+    line-height: 20px;
+    letter-spacing: normal;
+  }
 
-.textarea-detail {
-  flex: 1 1 auto;
-  font-size: 12px;
-  min-height: 14px;
-  min-width: 1px;
-  position: relative;
-}
+  .textarea-detail {
+    flex: 1 1 auto;
+    font-size: 12px;
+    min-height: 14px;
+    min-width: 1px;
+    position: relative;
 
-.textarea-detail .count {
-  float:right;
-}
+    .count {
+      float: right;
+    }
 
-.textarea-detail:after {
-  display: block;
-  clear: both;
+    &::after {
+      display: block;
+      clear: both;
+    }
+  }
+
+  .text-error {
+    color: #ff1010;
+  }
 }
 </style>

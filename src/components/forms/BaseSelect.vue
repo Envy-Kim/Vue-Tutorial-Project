@@ -72,8 +72,10 @@ export default {
 }
 </script>
 
-<style scoped>
-.select-wrap label {
-  margin-right: 5px;
+<style lang="scss" scoped>
+.select-wrap {
+  label {
+    margin-right: 5px;
+  }
 }
 </style>

@@ -132,20 +132,22 @@ export default {
 }
 </script>
 
-<style scoped>
-.input-wrap label {
-  margin-right: 10px;
-}
+<style lang="scss" scoped>
+.input-wrap {
+  label {
+    margin-right: 10px;
+  }
 
-.text-error {
-  color: red;
-}
+  .text-error {
+    color: red;
+  }
 
-.box-error {
-  border: solid 1px red;
-}
+  .box-error {
+    border: solid 1px red;
+  }
 
-.text-primary {
-  color: #96caf5;
+  .text-primary {
+    color: #96caf5;
+  }
 }
 </style>

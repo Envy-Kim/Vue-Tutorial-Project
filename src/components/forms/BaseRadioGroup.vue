@@ -39,7 +39,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
  .radio-group.rows {
    display: flex;
    align-items: center;
