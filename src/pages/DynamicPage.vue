@@ -3,8 +3,7 @@
     <sub-layout>
       <div class="content">
         <h1>동적 컴포넌트</h1>
-        <div>
-        </div>
+        <component :is="viewComponent" :tdata="testData"></component>
       </div>
     </sub-layout>
   </div>
@@ -12,10 +11,22 @@
 
 <script>
 import SubLayout from "@/components/layouts/sub/Index"
+import VueListItem from "@/components/bbs/VueListItem";
+import VueCard from "@/components/bbs/VueCard";
 
 export default {
   name: "DynamicPage",
-  components: { SubLayout },
+  components: { SubLayout, VueListItem, VueCard },
+  data() {
+    return {
+      viewComponent: VueListItem,
+      testData: {
+        name: 'test1',
+        subject: '제목제목',
+        content: '내용내용내용',
+      }
+    }
+  }
 }
 </script>
 
