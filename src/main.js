@@ -4,7 +4,8 @@ import routes from './router'
 import App from './App'
 //import '@/assets/css/reset.css'
 import '@/assets/css/normalize.css'
-import '/node_modules/bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap-reboot.css'
+import 'bootstrap/dist/css/bootstrap.css'
 
 Vue.use(VueRouter)
 

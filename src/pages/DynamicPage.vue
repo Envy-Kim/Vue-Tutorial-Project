@@ -9,7 +9,25 @@
         <button @click="setListType('webzine')">Webzine</button>
       </div>
 
-      <vue-board :columns="listColumns" :items="listItems" :bbs-type="listType" :mode="1"></vue-board>
+      <vue-board :columns="listColumns"
+                 :items="listItems"
+                 :bbs-type="listType"
+                 :mode="1"
+                 v-model="selectedItem"
+                 @click="modalShow = true"></vue-board>
+
+      <base-modal :show="modalShow" @close="modalShow = false">
+        <h5 slot="modal-title">{{ selectedItem.subject }}</h5>
+
+        <div class="modal-info mb-5">
+          <span>조회수 : {{ selectedItem.hit }}</span>
+          <span class="float-right">{{ selectedItem.created_at }}</span><br/>
+          <span class="float-right">글쓴이 : {{ selectedItem.author }}</span>
+        </div>
+
+        <img :src="selectedItem.image" class="img-fluid w-100 mb-3">
+        <p>{{ selectedItem.content }}</p>
+      </base-modal>
     </div>
   </sub-layout>
 </template>
@@ -17,12 +35,15 @@
 <script>
 import SubLayout from '@/components/layouts/sub/Index'
 import VueBoard from '@/components/board/Index'
+import BaseModal from '@/components/BaseModal'
 
 export default {
   name: "DynamicPage",
-  components: { SubLayout, VueBoard },
+  components: { SubLayout, VueBoard, BaseModal },
   data() {
     return {
+      modalShow: false,
+      selectedItem: {},
       listType: (localStorage.getItem('listType')) ? localStorage.getItem('listType') : 'list',
       listColumns: [
         {
@@ -67,11 +88,11 @@ export default {
         },
         {
           idx: 3,
-          subject: '제목1',
-          content: '내용1',
-          image: '',
-          hit: 1,
-          author: '글쓴이1',
+          subject: '어둠의 댄서',
+          content: '샘 레이미 감독의 스파이더맨 트릴로지에서 춤을 담당하고 있는 어둠의 댄서, 토비 맥과이어. ',
+          image: require('@/assets/images/image3.gif'),
+          hit: 7,
+          author: '스파이디',
           created_at: '2021-04-05 11:42:24',
         },
         {
@@ -110,5 +131,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.float-right {
+  &::after {
+    display: block;
+    content: '';
+    clear: both;
+  }
+}
 </style>
