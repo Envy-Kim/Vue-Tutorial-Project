@@ -43,4 +43,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.radio-item {
+  display: flex;
+  align-items: center;
+}
 </style>

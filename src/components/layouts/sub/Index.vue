@@ -2,7 +2,9 @@
   <div>
     <sub-header/>
     <sub-navigator/>
-    <slot/>
+    <div class="container mt-4">
+      <slot />
+    </div>
     <sub-footer/>
   </div>
 </template>

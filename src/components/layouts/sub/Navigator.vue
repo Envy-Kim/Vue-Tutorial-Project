@@ -1,11 +1,15 @@
 <template>
-  <div class="nav" role="banner">
-    <ul :class="type">
-      <li v-for="(item, index) in router" :key="index">
-        <router-link :to="item.path">{{item.title}}</router-link>
-      </li>
-    </ul>
+  <nav class="nav navbar-expand-lg navbar-light bg-dark">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul :class="type" class="navbar-nav">
+        <li v-for="(item, index) in router" :key="index" class="nav-item">
+          <router-link :to="item.path">{{item.title}}</router-link>
+        </li>
+      </ul>
+    </div>
   </div>
+</nav>
 </template>
 
 <script>
@@ -27,121 +31,75 @@ export default {
 }
 </script>
 
-<style scoped>
-ul.horizontal {
+<style lang="scss" scoped>
+.navbar-nav {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
-}
 
-ul.horizontal li {
-  float: left;
-}
+  .nav-item {
+    float: left;
 
-ul.horizontal li a {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+    a {
+      display: inline-block;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+  }
 
-ul.horizontal li a:hover:not(.router-link-exact-active) {
-  background-color: #000;
-}
+  &.horizontal {
+    background-color: #343a40;
 
-ul.horizontal li a.router-link-exact-active {
-  background-color:#4CAF50;
-}
+    .nav-item {
+      a {
+        color: white;
 
-ul.horizontal2 {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  border: 1px solid #e7e7e7;
-  background-color: #f3f3f3;
-}
+        &:hover:not(.router-link-exact-active) {
+          background-color: #000;
+        }
 
-ul.horizontal2 li {
-  float: left;
-}
+        &.router-link-exact-active {
+          background-color: #4CAF50;
+        }
+      }
+    }
+  }
 
-ul.horizontal2 li a {
-  display: inline-block;
-  color: #666;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
+  &.horizontal2 {
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
 
-ul.horizontal2 li a:hover:not(.router-link-exact-active) {
-  background-color: #ddd;
-}
+    .nav-item {
+      a {
+        color: #666;
 
-ul.horizontal2 a.router-link-exact-active {
-  color: white;
-  background-color: #4CAF50;
-}
-.width94 {
-  width:94%;
-}
-@media screen and (max-width: 600px) {
-  .width94 {
-    width:100%;
+        &:hover:not(.router-link-exact-active) {
+          background-color: #ddd;
+        }
+
+        &.router-link-exact-active {
+          color: white;
+          background-color: #4CAF50;
+        }
+      }
+    }
   }
 }
 
-ul.vertical {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 200px;
-  background-color: #f1f1f1;
+.width94 {
+  width:94%;
 }
 
-ul.vertical li a {
-  display: block;
-  color: #000;
-  padding: 8px 0 8px 16px;
-  text-decoration: none;
-}
-
-ul.vertical li a:hover:not(.router-link-exact-active) {
-  background-color: #555;
-  color:white;
-}
-
-ul.vertical a.router-link-exact-active {
-  background-color: #4CAF50;
-  color:white;
-}
-
-ul.gray {
-  border: 1px solid #e7e7e7;
-  background-color: #f3f3f3;
-}
-
-ul.gray li a {
-  display: block;
-  color: #666;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-ul.gray li a:hover:not(.router-link-exact-active) {
-  background-color: #ddd;
-}
-
-ul.gray li a.router-link-exact-active {
-  color: white;
-  background-color: #008CBA;
-}
 .rightli {
   float:right;
+}
+
+@media screen and (max-width: 600px) {
+  .width94 {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 408px) {
@@ -149,40 +107,5 @@ ul.gray li a.router-link-exact-active {
     display:none;
   }
 }
-
-ul.ex {
-  width:90%;
-}
-@media screen and (max-width: 600px) {
-  ul.ex {
-    width:100%;
-  }
-}
-
-ul.divider li {
-  float: left;
-  border-right:1px solid #bbb;
-}
-
-ul.divider li:last-child {
-  border-right: none;
-}
-ul.border {
-  border: 1px solid #555;
-}
-
-ul.border li a {
-  padding: 8px 16px;
-}
-
-ul.border li {
-  text-align: center;
-  border-bottom: 1px solid #555;
-}
-
-ul.border li:last-child {
-  border-bottom: none;
-}
-
 
 </style>

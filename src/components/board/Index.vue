@@ -1,36 +1,38 @@
 <template>
   <div class="board-wrap">
-    <!--
-    todo: keep-alive의 위치는 이곳이 맞는가? 부모인 DynamicPage에 있어야하는 것인가?
-    -->
     <keep-alive>
       <!-- :is 를 이용한 동적 컴포넌트 -->
       <div v-if="mode === 1">
-        <component :is="viewComponent" :tdata="tdata"></component>
+        <component :is="viewComponent" :columns="columns" :items="items" ></component>
       </div>
 
       <!-- v-if/else 를 이용한 컴포넌트 변경 -->
       <div v-else>
-        <div v-if="bbsType === 'list'">
-          List
-        </div>
-        <div v-else-if="bbsType === 'gallery'">
-          Gallery
-        </div>
-        <div v-else>
-          Webzine
-        </div>
+        <vue-table v-if="bbsType === 'list'"
+                   :columns="columns"
+                   :items="items" >
+        </vue-table>
+
+        <vue-gallery v-else-if="bbsType === 'gallery'"
+                     :items="items" >
+        </vue-gallery>
+
+        <vue-webzine v-else
+                     :items="items" >
+        </vue-webzine>
       </div>
     </keep-alive>
   </div>
 </template>
 
 <script>
-import VueListItem from "@/components/board/VueListItem";
-import VueCard from "@/components/board/VueCard";
+import VueTable from "./VueTable";
+import VueGallery from "./VueGallery";
+import VueWebzine from "./VueWebzine";
 
 export default {
   name: "BBSIndex",
+  components: { VueTable, VueGallery, VueWebzine },
   props: {
     mode: {
       type: Number,
@@ -39,19 +41,30 @@ export default {
     bbsType: {
       type: String,
       default: 'list',
+      validator(value) {
+        // 값이 항상 아래 세 개의 문자열 중 하나여야 합니다.
+        return ['list', 'gallery', 'webzine'].indexOf(value) !== -1
+      },
     },
-    tdata: {
-      type: Object
+    items: {
+      type: Array,
+      required: true,
+      validator: (list => list.length >0),
+    },
+    columns: {
+      type: Array,
+      required: true,
+      validator: (list => list.length >0),
     }
   },
   computed: {
     viewComponent: function () {
-      let view = VueListItem
+      let view = VueTable
 
       if (this.bbsType === 'gallery')
-        view = VueCard
+        view = VueGallery
       else if (this.bbsType === 'webzine')
-        view = VueCard
+        view = VueWebzine
 
       return view
     },

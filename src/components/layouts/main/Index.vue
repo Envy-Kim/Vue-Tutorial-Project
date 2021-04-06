@@ -2,7 +2,9 @@
   <div>
     <main-header class="ml-300" />
     <main-navigator/>
-    <slot class="ml-300" />
+    <div class="container">
+      <slot />
+    </div>
     <main-footer class="ml-300" />
   </div>
 </template>

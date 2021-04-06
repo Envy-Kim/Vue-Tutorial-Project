@@ -24,7 +24,4 @@ export default {
 </script>
 
 <style scoped>
-.content {
-  margin: auto 50px auto 350px;
-}
 </style>

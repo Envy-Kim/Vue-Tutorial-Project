@@ -1,55 +1,54 @@
 <template>
   <div>
     <sub-layout>
-      <div class="content">
-        <div class="input">
-          <h1>Custom Component</h1>
+      <div class="input">
+        <h1>Custom Component</h1>
 
-          <base-input type='email' id="email" name="email" label="E-mail" v-model="user.email" :rules=rules.email />
-          <br/>
-          <base-input type='password' label="Password" v-model="user.password" :rules=rules.password />
-          <br/>
-          <base-input label="이름" readonly v-model="user.name" :rules=rules.name />
-          <br/>
-          <base-input label="휴대폰번호" v-model="user.phone" :rules=rules.phone />
-          <br/>
+        <base-input type='email' id="email" name="email" label="E-mail" v-model="user.email" :rules=rules.email />
+        <br/>
+        <base-input type='password' label="Password" v-model="user.password" :rules=rules.password />
+        <br/>
+        <base-input label="이름" readonly v-model="user.name" :rules=rules.name />
+        <br/>
+        <base-input label="휴대폰번호" v-model="user.phone" :rules=rules.phone />
+        <br/>
 
-          <base-radio-group label="성별" v-model="user.gender">
-            <base-radio value="1" label="남" :checked="true"/>
-            <base-radio value="2" label="여"/>
-          </base-radio-group>
-          <br/>
+        <base-radio-group label="성별" v-model="user.gender">
+          <base-radio value="1" label="남" :checked="true"/>
+          <base-radio value="2" label="여"/>
+        </base-radio-group>
+        <br/>
 
-          <base-radio-group label="연령대" name="age" type="cols" v-model="user.age">
-            <base-radio value="10" label="10대" :checked="true"/>
-            <base-radio value="20" label="20대"/>
-            <base-radio value="30" label="30대"/>
-            <base-radio value="40" label="40대"/>
-            <base-radio value="50" label="50대"/>
-          </base-radio-group>
-          <br/>
+        <base-radio-group label="연령대" name="age" type="cols" v-model="user.age">
+          <base-radio value="10" label="10대" :checked="true"/>
+          <base-radio value="20" label="20대"/>
+          <base-radio value="30" label="30대"/>
+          <base-radio value="40" label="40대"/>
+          <base-radio value="50" label="50대"/>
+        </base-radio-group>
+        <br/>
 
-          <base-select :items="areaItems" item-value="value" item-text="title"
-                       label="지역" v-model="user.area"></base-select>
-          <br/>
+        <base-select :items="areaItems" item-value="value" item-text="title"
+                     label="지역" v-model="user.area"></base-select>
+        <br/>
 
-          <div class="input-group">
-            <base-checkbox label="Html" input-value="html" v-model="user.tech" :checked="true"/>
-            <base-checkbox label="CSS" input-value="css" v-model="user.tech"/>
-            <base-checkbox label="JavaScript" input-value="javascript" v-model="user.tech"/>
-            <base-checkbox label="TypeScript" input-value="typescript" v-model="user.tech"/>
-            <base-checkbox label="Vue" input-value="javascript" v-model="user.tech"/>
-          </div>
-
-          <br/><br/>
-          <base-textarea label="Info" :width="500" :background-color="textareaColor" v-model="user.info"
-                         :rules=rules.info></base-textarea>
-          <base-input label="배경색" v-model="textareaColor"/>
-
-          <base-checkbox label="동의" input-value="true" v-model="user.agree"/>
+        <div class="input-group">
+          <base-checkbox label="Html" input-value="html" v-model="user.tech" :checked="true"/>
+          <base-checkbox label="CSS" input-value="css" v-model="user.tech"/>
+          <base-checkbox label="JavaScript" input-value="javascript" v-model="user.tech"/>
+          <base-checkbox label="TypeScript" input-value="typescript" v-model="user.tech"/>
+          <base-checkbox label="Vue" input-value="javascript" v-model="user.tech"/>
         </div>
 
-        <div class="info">
+        <br/><br/>
+        <base-textarea label="Info" :width="500" :background-color="textareaColor" v-model="user.info"
+                       :rules=rules.info></base-textarea>
+        <base-input label="배경색" v-model="textareaColor"/>
+
+        <base-checkbox label="동의" input-value="true" v-model="user.agree"/>
+      </div>
+
+      <div class="info">
           <h1>입력된 유저 정보</h1>
           이메일 : {{ user.email }}<br/>
           비밀번호 : {{ user.password }}<br/>
@@ -62,7 +61,6 @@
           정보 : {{ user.info }}<br/>
           동의 : {{ user.agree }}<br/>
         </div>
-      </div>
     </sub-layout>
   </div>
 </template>
@@ -155,12 +153,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.content {
-  margin: auto 50px;
-
-  .input-group {
-    display: flex;
-    align-items: center;
-  }
+.input-group {
+  display: flex;
+  align-items: center;
 }
 </style>
