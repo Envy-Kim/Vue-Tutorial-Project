@@ -4,6 +4,9 @@
       <!-- :is 를 이용한 동적 컴포넌트 -->
       <div v-if="mode === 1">
         <transition name="list-fade" mode="out-in" appear>
+          <!--
+          todo: 각 리스트 컴포넌트 수정. ListItem, Gallery, Webzine으로 구분하고 index에서 v-for를 이용하여 리스트를 구현
+          -->
           <component :is="viewComponent"
                      :columns="columns"
                      :items="items"
@@ -55,6 +58,7 @@ import VueGallery from "./VueGallery";
 import VueWebzine from "./VueWebzine";
 
 export default {
+  // todo: 공통 prop, data, methods 등에 대한 mixin 고려
   name: "BoardIndex",
   components: { VueTable, VueGallery, VueWebzine },
   props: {

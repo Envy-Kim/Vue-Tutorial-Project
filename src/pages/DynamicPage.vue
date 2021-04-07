@@ -128,6 +128,7 @@ export default {
     },
   },
   watch: {
+    // todo: 현재 watch로 구현된 조회수를 store를 이용하여 수정.
     selectedItem: function(item) {
       console.log('change selectedItem')
       ++item.hit

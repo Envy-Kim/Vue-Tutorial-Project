@@ -4,9 +4,10 @@
     <tr class="table-primary">
       <th scope="col"
           v-for="(column, key) in columns" :key="key"
-      >{{column.label}}</th>
+      >{{ column.label }}
+      </th>
     </tr>
-    </thead>
+    </thead> 3
 
     <tbody>
     <tr v-for="(item, key) in items" :key="key">

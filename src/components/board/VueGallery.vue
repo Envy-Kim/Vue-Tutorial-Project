@@ -3,6 +3,7 @@
     <div class="col mb-4"
          v-for="(item, key) in items" :key="key">
       <div class="card text-white" @click="selectItem(item)">
+        <!-- @error를 이용해서 error 발생시 img의 src를 수정해주는 방법도 있음. -->
         <img :src="(item.image) ? item.image : fileIcon" class="card-img-top" alt="...">
         <div class="img-cover"></div>
         <div class="card-body">
