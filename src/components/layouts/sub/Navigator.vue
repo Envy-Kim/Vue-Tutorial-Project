@@ -1,7 +1,7 @@
 <template>
-  <nav class="nav navbar-expand-lg navbar-light bg-dark">
+  <nav class="nav navbar navbar-expand-lg navbar-light bg-dark">
   <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="navbar-collapse" id="navbarNav">
       <ul :class="type" class="navbar-nav">
         <li v-for="(item, index) in router" :key="index" class="nav-item">
           <router-link :to="item.path">{{item.title}}</router-link>
@@ -46,6 +46,7 @@ export default {
       text-align: center;
       padding: 14px 16px;
       text-decoration: none;
+      width: 100%;
     }
   }
 
@@ -96,9 +97,21 @@ export default {
   float:right;
 }
 
+@media screen and (max-width: 1200px) {
+  .navbar-nav {
+    flex-direction: row;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .width94 {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar-nav {
+    flex-direction: column;
   }
 }
 

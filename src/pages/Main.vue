@@ -1,6 +1,6 @@
 <template>
   <div>
-    <main-layout>
+    <sub-layout>
       <div class="content">
         <h1>Vue Study</h1>
         <ul>
@@ -10,16 +10,16 @@
           <li>Dynamic Component</li>
         </ul>
       </div>
-    </main-layout>
+    </sub-layout>
   </div>
 </template>
 
 <script>
-import MainLayout from "@/components/layouts/main/Index"
+import SubLayout from "@/components/layouts/sub/Index"
 
 export default {
   name: "Main",
-  components: { MainLayout },
+  components: { SubLayout },
 }
 </script>
 

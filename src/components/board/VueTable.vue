@@ -7,7 +7,7 @@
       >{{ column.label }}
       </th>
     </tr>
-    </thead> 3
+    </thead>
 
     <tbody>
     <tr v-for="(item, key) in items" :key="key">
