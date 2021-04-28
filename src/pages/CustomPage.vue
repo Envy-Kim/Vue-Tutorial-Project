@@ -33,11 +33,11 @@
         <br/>
 
         <div class="input-group">
-          <base-checkbox label="Html" input-value="html" v-model="user.tech" :checked="true"/>
-          <base-checkbox label="CSS" input-value="css" v-model="user.tech"/>
-          <base-checkbox label="JavaScript" input-value="javascript" v-model="user.tech"/>
-          <base-checkbox label="TypeScript" input-value="typescript" v-model="user.tech"/>
-          <base-checkbox label="Vue" input-value="javascript" v-model="user.tech"/>
+          <base-checkbox label="Html" value="html" v-model="user.tech" :checked="true"/>
+          <base-checkbox label="CSS" value="css" v-model="user.tech"/>
+          <base-checkbox label="JavaScript" value="javascript" v-model="user.tech"/>
+          <base-checkbox label="TypeScript" value="typescript" v-model="user.tech"/>
+          <base-checkbox label="Vue" value="Vue" v-model="user.tech"/>
         </div>
 
         <br/><br/>
@@ -45,7 +45,7 @@
                        :rules=rules.info></base-textarea>
         <base-input label="배경색" v-model="textareaColor"/>
 
-        <base-checkbox label="동의" input-value="true" v-model="user.agree"/>
+        <base-checkbox label="동의" value="true" v-model="user.agree"/>
       </div>
 
       <div class="info">

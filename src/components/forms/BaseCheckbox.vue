@@ -1,31 +1,31 @@
-<!--
-todo: v-model 과 component의 model 확인
-todo: 다중 선택일때는 array, 아닐때는 boolean을 리턴하는 것에 대한 검토
--->
 <template>
-  <div>
+  <div class="checkbox">
     <input type="checkbox"
            :id="_id"
-           :value="inputValue"
-           :checked="checked"
+           :value="value"
+           :checked="_checked"
            @input="change"
-           >
-    <label :for="id">{{ label }}</label>
+    >
+    <label :for="_id">{{ label }}</label>
   </div>
 </template>
 
 <script>
 export default {
-  name: "BaseCheckbox",
+  name: "TodoCheckbox",
+  model: {
+    prop: 'inputValue',
+    event: 'input',
+  },
   props: {
     id: {
       type: String,
     },
-    value: { // v-model과 매칭되는 value
-      type: [String, Array, Boolean],
-    },
-    inputValue: { // checkbox에 들어가는 value
+    value: { // checkbox에 들어가는 value
       type: String,
+    },
+    inputValue: { // v-model과 매칭되는 value
+      type: [String, Array, Boolean],
     },
     label: {
       type: String,
@@ -39,21 +39,28 @@ export default {
     _id: function () {
       return (this.id) ? this.id : 'input-' + this._uid
     },
+    _checked: function () {
+      return (this.checked)
+          ? this.checked
+          : (typeof this.inputValue == 'boolean')
+              ? this.inputValue
+              : false
+    }
   },
   methods: {
     change($event) {
-      if(this.value instanceof Array) {
+      if (this.inputValue instanceof Array) {
         // 다중선택 체크박스인 경우 값을 배열로 반환
 
         // v-model과 연결된 value(Array)를 checkArr 배열에 할당
-        let checkArr = this.value
+        let checkArr = [...this.inputValue]
 
         // 선택된 체크박스의 값을 checkArr에 push
         if ($event.target.checked) {
-          checkArr.push(this.inputValue)
+          checkArr.push(this.value)
         } else {
           // 선택된 체크박스를 해제한 경우 checkArr에서 현재 체크박스의 값을 삭제
-          checkArr.splice(checkArr.indexOf(this.inputValue), 1)
+          checkArr.splice(checkArr.indexOf(this.value), 1)
         }
         this.$emit('input', checkArr)
       } else {
